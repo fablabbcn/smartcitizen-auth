@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.where("email = ? OR username = ?", params[:email]).first
+    user = User.where("email = ? OR username = ?", params[:email], params[:email]).first
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to (session[:user_return_to] || root_url), notice: "Logged in!"
