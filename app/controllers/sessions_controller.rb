@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.where("email = ? OR username = ?", params[:email], params[:email]).first
-    if user && user.authenticate(params[:password])
+    user = User.where("email = ? OR username = ?", params[:username_or_email], params[:username_or_email]).first
+    if user && user.authenticate_with_legacy_support(params[:password])
       session[:user_id] = user.id
       redirect_to (session[:user_return_to] || 'https://example.smartcitizen.me'), notice: "Logged in!"
     else
@@ -18,12 +18,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
-  end
-
-private
-
-  def user_params
-    params.require(:user).permit(:email, :username, :password)
   end
 
 end
