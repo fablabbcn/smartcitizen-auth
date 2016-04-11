@@ -3,6 +3,7 @@
 class Oauth::ApplicationsController < Doorkeeper::ApplicationsController
 
   # http_basic_authenticate_with name: ENV.fetch("http_user"), password: ENV.fetch("http_password")
+  before_action :authorize
 
   def index
     @applications = current_user.oauth_applications
@@ -18,5 +19,11 @@ class Oauth::ApplicationsController < Doorkeeper::ApplicationsController
       render :new
     end
   end
+
+  private
+
+    def authorize
+      redirect_to root_url, alert: "Not authorized" if current_user.nil?
+    end
 
 end

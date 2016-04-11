@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorize, except: [:destroy]
-
   def new
     redirect_to 'http://example.smartcitizen.me' if current_user
   end
