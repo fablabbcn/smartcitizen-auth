@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.where("downcase(email) = ? OR downcase(username) = ?",
-      params[:username_or_email].downcase, params[:username_or_email].downcase).first
+    user = User.where("lower(email) = lower(?) OR lower(username) = lower(?)",
+      params[:username_or_email], params[:username_or_email]).first
     if user && user.authenticate_with_legacy_support(params[:password])
       session[:user_id] = user.id
       redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
