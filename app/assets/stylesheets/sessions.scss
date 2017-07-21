@@ -13,7 +13,6 @@ body{
 
 .button {
   margin-top: 20px;
-  background-color: #38cef3; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -23,15 +22,26 @@ body{
   font-size: 18px;
 }
 
+.login{
+  background-color: #38cef3;
+}
+.login:hover{
+  background-color:#c8e6ed;
+}
+
+.reset{
+  background-color:#ff5722;
+}
+
+.reset:hover{
+  background-color:#f06292;
+}
 
 h1{
   font-size: 1.8em;
   font-weight: normal;
 }
 
-.button:hover{
-  background-color:#c8e6ed;
-}
 
 input[type=text],input[type=password] {
   padding:7px;
