@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
   def create
     if params[:reset]
       reset_password
-      # TODO: What is the best way here? Notify the user it has an email?
-      redirect_to '/', notify: 'Please check your email to reset the password.'
+      redirect_to '/'
       return
     end
     user = User.where("lower(email) = lower(?) OR lower(username) = lower(?)",
@@ -31,11 +30,19 @@ class SessionsController < ApplicationController
     https.use_ssl = true
 
     req = Net::HTTP::Post.new(uri.path)
-    form_data = URI.encode_www_form({:email => params[:username_or_email] })
+    form_data = URI.encode_www_form({:email_or_username => params[:username_or_email] })
     req.body = form_data
     res = https.request(req)
+    jsonres = JSON.parse( res.body )
 
-    puts res.body
+    flash[:alert] = jsonres["message"]
+
+    if flash[:alert].include? "Delivered"
+      flash[:notice] = 'Please check your email to reset the password.'
+    else
+      flash[:notice] = 'Is your username / email correct?'
+    end
+
   end
 
   def destroy
