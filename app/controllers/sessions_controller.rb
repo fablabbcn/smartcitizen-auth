@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       redirect_to '/', notify: 'Please check your email to reset the password.'
       return
     end
-    user = User.where("email = ? OR username = ?", params[:username_or_email], params[:username_or_email]).first
+    user = User.where("lower(email) = lower(?) OR lower(username) = lower(?)",
+      params[:username_or_email], params[:username_or_email]).first
     if user && user.authenticate_with_legacy_support(params[:password])
       session[:user_id] = user.id
       redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
