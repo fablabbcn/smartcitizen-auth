@@ -75,13 +75,22 @@ class SessionsController < ApplicationController
     res = https.request(req)
     jsonres = JSON.parse( res.body )
 
+    logger.warn jsonres
 
-    sleep 2
-    if true # password change worked
-      redirect_to '/', notice: 'Password change sent'
-    else # error while changin passwords?
-      redirect_to '/', notice: 'Some error'
+    if jsonres["message"]
+      flash[:alert] = jsonres["message"]
+      if flash[:alert].include? "Could"
+        flash[:notice] = 'Your reset code might be too old or have been used before.'
+      end
     end
+
+    if jsonres["username"]
+      flash[:notice] = 'Changed password for: '
+      flash[:alert] = jsonres["username"]
+    end
+
+    redirect_to '/'
+
   end
 
   def destroy
