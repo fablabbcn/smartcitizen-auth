@@ -8,11 +8,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:reset]
-      reset_password
+    if params[:send_password_email]
+      logger.warn '---- send_password_email'
+      reset_password_email
       redirect_to '/'
       return
     end
+
+    if params[:change_password]
+      logger.warn '---- change_password'
+      change_password
+      #redirect_to '/'
+      #return
+    end
+
+    logger.warn '---- Create - normal login'
     user = User.where("lower(email) = lower(?) OR lower(username) = lower(?)",
       params[:username_or_email], params[:username_or_email]).first
     if user && user.authenticate_with_legacy_support(params[:password])
@@ -24,14 +34,13 @@ class SessionsController < ApplicationController
     end
   end
 
-  def reset_password
-    uri = URI.parse("https://api.smartcitizen.me/v0/password_resets?email=#{params[:username_or_email]}")
+  def reset_password_email
+    uri = URI.parse("https://api.smartcitizen.me/v0/password_resets")
     https = Net::HTTP.new(uri.host,uri.port)
     https.use_ssl = true
 
     req = Net::HTTP::Post.new(uri.path)
-    form_data = URI.encode_www_form({:email_or_username => params[:username_or_email] })
-    req.body = form_data
+    req.body = URI.encode_www_form({:email_or_username => params[:username_or_email] })
     res = https.request(req)
     jsonres = JSON.parse( res.body )
 
@@ -43,6 +52,36 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Is your username / email correct?'
     end
 
+  end
+
+  def password_reset_landing
+    # Landing page from the email
+    logger.warn '---- password_reset (landing page from email)'
+    token = params[:token]
+    logger.warn @token
+  end
+
+  def change_password
+    logger.warn '---- Send PATCH request with token + password'
+    logger.warn params[:token]
+
+    #curl -XPATCH "https://api.smartcitizen.me/v0/password_resets/kP3LH5G7J6k9rqjVmGwYOA?password=12341234"
+    uri = URI.parse("https://api.smartcitizen.me/v0/password_resets/#{params[:token]}")
+    https = Net::HTTP.new(uri.host,uri.port)
+    https.use_ssl = true
+
+    req = Net::HTTP::Patch.new(uri.path)
+    req.body = URI.encode_www_form({:password => params[:password] })
+    res = https.request(req)
+    jsonres = JSON.parse( res.body )
+
+
+    sleep 2
+    if true # password change worked
+      redirect_to '/', notice: 'Password change sent'
+    else # error while changin passwords?
+      redirect_to '/', notice: 'Some error'
+    end
   end
 
   def destroy
