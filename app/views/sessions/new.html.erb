@@ -9,7 +9,10 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </div>
-  <div class="actions"><%= submit_tag "LOG IN", :class => 'button login' %></div>
+  <div class="actions">
+    <%= submit_tag "LOG IN", :class => 'button login' %>
+    <%= image_tag("sck.png", :alt => 'SCK logo', :class => 'scklogo') %>
+  </div>
   <div>
     <a  class="button login" href="https://www.smartcitizen.me/signup">SIGN UP</a>
   </div>
