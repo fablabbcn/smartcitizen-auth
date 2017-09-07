@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
+  get "discourse/sso" => 'discourse#sso'
+
   get 'password_reset/:token', to: 'sessions#password_reset_landing', as: 'password_reset'
   post 'change_password', to: 'sessions#change_password', as: 'change_password'
 
