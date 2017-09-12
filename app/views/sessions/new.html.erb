@@ -1,5 +1,7 @@
 <h1>Log In</h1>
 
+<%= image_tag("sck.png", :alt => 'SCK logo', :class => 'scklogo') %>
+
 <%= form_tag sessions_path do %>
   <div class="field">
     <%= label_tag :username_or_email, "Username or Email" %><br />
@@ -11,7 +13,6 @@
   </div>
   <div class="actions">
     <%= submit_tag "LOG IN", :class => 'button login' %>
-    <%= image_tag("sck.png", :alt => 'SCK logo', :class => 'scklogo') %>
   </div>
   <div>
     <a  class="button login" href="https://www.smartcitizen.me/signup">SIGN UP</a>
