@@ -27,7 +27,13 @@ class SessionsController < ApplicationController
       params[:username_or_email], params[:username_or_email]).first
     if user && user.authenticate_with_legacy_support(params[:password])
       session[:user_id] = user.id
-      redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
+
+      # If we came from Discourse (with the goto param), redirect to /discourse/sso
+      if params[:goto]
+        redirect_to params[:goto]
+      else
+        redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
+      end
     else
       flash.now.alert = "Email or password is invalid"
       render "new"

@@ -2,7 +2,7 @@ class DiscourseController < ApplicationController
 
   def sso
     if !current_user
-      redirect_to '/', notice: 'Please Log In before using SSO'
+      redirect_to root_path(goto: request.path), notice: 'Please Log In before using SSO'
       return
     end
     secret = Figaro.env.discourse_sso_secret

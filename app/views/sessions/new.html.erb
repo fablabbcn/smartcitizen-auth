@@ -12,6 +12,7 @@
     <%= password_field_tag :password %>
   </div>
   <div class="actions">
+    <%= hidden_field_tag :goto, params[:goto] %>
     <%= submit_tag "LOG IN", :class => 'button login' %>
   </div>
   <div>
