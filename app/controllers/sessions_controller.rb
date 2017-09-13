@@ -29,8 +29,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
 
       # If we came from Discourse (with the goto param), redirect to /discourse/sso
-      if params[:goto]
-        redirect_to params[:goto]
+      if params[:goto].include? 'discourse'
+        redirect_to session[:discourse_url]
       else
         redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
       end
