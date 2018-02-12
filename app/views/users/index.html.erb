@@ -1,4 +1,13 @@
-<h1>Users</h1>
+<h1>User info</h1>
 
-<p>See example:</p>
+<% if current_user %>
+  <p>Logged in!</p>
+  <%= debug current_user.attributes %>
+<% else %>
+  <p>Not logged in!</p>
+<% end %>
+<hr />
+
+
+<p>See JSON user data from example.smartcitizen.me:</p>
 <%= link_to "http://example.smartcitizen.me", "http://example.smartcitizen.me" %>
