@@ -22,6 +22,9 @@ group :development, :test do
   gem 'guard-shell'
   gem 'guard-rspec'
   gem 'rspec'
-  gem 'web-console', '~> 2.0'
+  gem 'rspec-rails'
   gem 'spring'
+end
+group :development do
+  gem 'web-console', '~> 2.0'
 end

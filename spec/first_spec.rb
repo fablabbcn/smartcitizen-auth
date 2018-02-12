@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe "" do
+RSpec.describe "test" do
 
   it "does nothing" do
     tmp = 6
@@ -12,4 +12,4 @@ end
 #    get '/v0/assets/ngsiv2'
 #    assert_response :success
 #  end
-#
+
