@@ -14,3 +14,8 @@ It currently redirects to http://example.smartcitizen.me, this behaviour is like
 
 `http_user`
 `http_password`
+
+
+## Development + test
+
+Run `bundle exec guard` to autorun tests
