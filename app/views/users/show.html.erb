@@ -2,11 +2,11 @@
 
 <% if current_user %>
   <p>Logged in!</p>
+  <%= current_user %>
 <% else %>
   <p>Not logged in!</p>
 <% end %>
-
-<%= params %>
+<hr />
 
 <p>Find me in app/views/users/show.html.erb</p>
 
