@@ -18,6 +18,10 @@ gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
+  gem 'guard'
+  gem 'guard-shell'
+  gem 'guard-rspec'
+  gem 'rspec'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
