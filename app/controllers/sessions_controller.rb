@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   require 'net/https'
 
   def new
-    redirect_to user_url if current_user
+    redirect_to users_url if current_user
   end
 
   def create

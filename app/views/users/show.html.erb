@@ -1,7 +1,15 @@
 <h1>User <%= params[:id] %></h1>
 
+<% if current_user %>
+  <p>Logged in!</p>
+<% else %>
+  <p>Not logged in!</p>
+<% end %>
+
 <%= params %>
 
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%= link_to "http://example.smartcitizen.me", "http://example.smartcitizen.me" %>
+
+
