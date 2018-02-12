@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
       if params[:goto].include? 'discourse'
         redirect_to session[:discourse_url]
       else
-        redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "Logged in!"
+        redirect_to (session[:user_return_to] || 'http://example.smartcitizen.me'), notice: "You have been successfully logged in!"
       end
     else
       flash.now.alert = "Email or password is invalid"
