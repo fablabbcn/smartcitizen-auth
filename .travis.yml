@@ -2,5 +2,12 @@ language: ruby
 rvm:
 - 2.3.3
 script: bundle exec rake
-addons:
-  postgresql: '9.4'
+before_script:
+  - service postgresql status
+  - bundle exec rake db:setup
+services:
+  - postgresql
+
+env:
+  global:
+    - POSTGRES_HOST=localhost
