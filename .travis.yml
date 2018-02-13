@@ -4,7 +4,7 @@ rvm:
 script: bundle exec rake
 before_script:
   - service postgresql status
-  - bundle exec rake db:setup
+  - RAILS_ENV=test bundle exec rake db:setup
 services:
   - postgresql
 
