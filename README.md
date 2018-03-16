@@ -19,3 +19,7 @@ It currently redirects to http://example.smartcitizen.me, this behaviour is like
 ## Development + test
 
 Run `bundle exec guard` to autorun tests
+
+
+## Docker
+docker-compose exec app rake db:setup db:migrate
