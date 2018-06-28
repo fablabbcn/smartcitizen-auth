@@ -1,12 +1,12 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$darkest: #032933;
-$darkblue: #065063;
-$cyan: #38CEF3;
+$darkest: #2e2e2e;
+$darkblue: #0019ff;
+$cyan: #4FC3F7;
 $secondary: #8DB2BA;
-$grey: #C8E6ED;
-
+$grey: #d2d3d5;
+$red: #FF3D4C;
 body{
   color: white;
   background-color: $darkest;
@@ -33,16 +33,18 @@ body{
 }
 .login:hover{
   cursor: pointer;
-  background-color:$grey;
+  color: $cyan;
+  background-color: #FFF;
 }
 
 .reset{
-  background-color:#ff5722;
+  background-color: $red;
 }
 
 .reset:hover{
   cursor: pointer;
-  background-color:#f06292;
+  color: $red;
+  background-color: #FFF;
 }
 
 h1{
