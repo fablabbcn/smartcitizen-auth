@@ -22,4 +22,8 @@ Run `bundle exec guard` to autorun tests
 
 
 ## Docker
-docker-compose exec app rake db:setup db:migrate
+First migrate db  
+`docker-compose exec app rake db:setup db:migrate`
+
+Then run
+`docker-compose up`
