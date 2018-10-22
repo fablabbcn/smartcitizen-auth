@@ -12,6 +12,9 @@ $red: #FA5161;
 *{
   font-family:'Kanit';
 }
+h1{
+  font-weight:700 !important;
+}
 
 .button {
   border: none;
@@ -37,10 +40,9 @@ $red: #FA5161;
 }
 
 input[type=text],input[type=password] {
-  padding:10px;
+  padding:7px;
   border:none;
-  border-bottom:1px solid #ccc;
-
+  border-bottom:2px solid #BEBEBE;
 }
 
 #flash_notice{
@@ -52,4 +54,3 @@ input[type=text],input[type=password] {
   color: white;
   background-color: $red;
 }
-
