@@ -7,6 +7,13 @@ class SessionsController < ApplicationController
     redirect_to users_url if current_user
   end
 
+  def index
+    # If you click 'Sign in to your account' and it fails with a
+    # 'Email or password invalid' and you then refresh the page
+    # it would end here with a rails error
+    redirect_to '/'
+  end
+
   def create
     if params[:send_password_email]
       logger.warn '---- send_password_email'
