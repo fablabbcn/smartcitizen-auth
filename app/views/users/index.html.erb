@@ -1,20 +1,24 @@
-<h1>User info</h1>
+<h1 class="my-3">User info</h1>
 
-<%= link_to "Smartcitizen Website", "https://www.smartcitizen.me/" %><br />
-<%= link_to "Smartcitizen Forum", "https://forum.smartcitizen.me/" %><br />
-<%= link_to "Smartcitizen API", "https://api.smartcitizen.me/" %><br />
-<%= link_to "Smartcitizen Developer documentation", "https://developer.smartcitizen.me/" %><br />
-<%= link_to "See JSON user data from example.smartcitizen.me", "http://example.smartcitizen.me" %>
+<div class="card">
+  <div class="card-body">
 
-<br />
-<br />
+    <%= link_to "Smartcitizen Website", "https://www.smartcitizen.me/" %><br />
+    <%= link_to "Smartcitizen Forum", "https://forum.smartcitizen.me/" %><br />
+    <%= link_to "Smartcitizen API", "https://api.smartcitizen.me/" %><br />
+    <%= link_to "Smartcitizen Developer documentation", "https://developer.smartcitizen.me/" %><br />
+    <%= link_to "See JSON user data from example.smartcitizen.me", "http://example.smartcitizen.me" %>
 
-<hr />
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path, class: 'button reset' %>
-  <%= debug current_user.attributes %>
-<% else %>
-  <p>Not logged in!</p>
-<% end %>
+    <hr />
 
+    <% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Log Out", logout_path, class: 'button bg-red' %>
+      <%= debug current_user.attributes %>
+    <% else %>
+      <p class="color-red">Not logged in!</p>
+      <a class="button bg-blue" href="/">GO BACK</a>
+    <% end %>
+
+  </div>
+</div>

@@ -12,10 +12,12 @@ $red: #FA5161;
 *{
   font-family:'Kanit';
 }
+body{
+  background-color: #e3e3e3;
+}
 h1{
   font-weight:700 !important;
 }
-
 .button {
   border: none;
   color: white;
@@ -37,6 +39,9 @@ h1{
 
 .bg-red{
   background-color: $red;
+}
+.color-red{
+  color: $red;
 }
 
 input[type=text],input[type=password] {
