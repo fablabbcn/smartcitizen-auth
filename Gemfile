@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.7'
+ruby '2.4.5'
 
 gem 'rails', '~> 4.2'
-gem 'pg', '~> 0.21'
+gem 'pg', '0.20'
 gem 'figaro'
 gem 'sass-rails'
 gem 'uglifier'
