@@ -14,7 +14,7 @@
     <% if current_user %>
       <p>Logged in as <%= current_user.email %>. </p>
       <%= link_to "Log Out", logout_path, class: 'button bg-red' %>
-      <div class="text-center">
+      <div class="text-left">
         <%= debug current_user.attributes %>
       </div>
     <% else %>
