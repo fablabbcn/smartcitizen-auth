@@ -52,6 +52,8 @@ input[type=text],input[type=password] {
 
 #flash_notice{
   padding:20px;
+  color: white;
+  background-color: $blue;
 }
 
 #flash_alert{
