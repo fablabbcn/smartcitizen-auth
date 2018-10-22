@@ -12,9 +12,11 @@
     <hr />
 
     <% if current_user %>
-      Logged in as <%= current_user.email %>.
+      <p>Logged in as <%= current_user.email %>. </p>
       <%= link_to "Log Out", logout_path, class: 'button bg-red' %>
-      <%= debug current_user.attributes %>
+      <div class="text-center">
+        <%= debug current_user.attributes %>
+      </div>
     <% else %>
       <p class="color-red">Not logged in!</p>
       <a class="button bg-blue" href="/">GO BACK</a>
