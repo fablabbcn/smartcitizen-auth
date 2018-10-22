@@ -1,25 +1,19 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$darkest: #2e2e2e;
-$darkblue: #0019ff;
-$cyan: #4FC3F7;
-$secondary: #8DB2BA;
-$grey: #d2d3d5;
-$red: #FF3D4C;
+$blue: #0C2EFB;
+$black: #212121;
+$grey: #E3E3E3;
+$red: #FA5161;
 
-body{
-  color: white;
-  background-color: $darkest;
-  font-size: 1.2em;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic|Roboto:400,700,700italic,400italic');
+@import url('https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,900');
 
 *{
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family:'Kanit';
 }
 
 .button {
-  margin-top: 20px;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -28,44 +22,25 @@ body{
   display: inline-block;
   font-size: 18px;
 }
-
-.login{
-  background-color: $cyan;
+.bg-blue{
+  background-color: $blue !important;
 }
-.login:hover{
+
+.button:hover{
   cursor: pointer;
-  color: $cyan;
-  background-color: #FFF;
+  color: white;
+  text-decoration:underline;
 }
 
-.reset{
+.bg-red{
   background-color: $red;
 }
 
-.reset:hover{
-  cursor: pointer;
-  color: $red;
-  background-color: #FFF;
-}
-
-h1{
-  font-size: 1.8em;
-  font-weight: normal;
-}
-
-
 input[type=text],input[type=password] {
-  padding:7px;
-  border:2px solid #ccc;
-}
+  padding:10px;
+  border:none;
+  border-bottom:1px solid #ccc;
 
-.field{
-  margin-top:10px;
-}
-
-.scklogo{
-  margin-left: 40px;
-  margin-top: 20px;
 }
 
 #flash_notice{
@@ -76,9 +51,3 @@ input[type=text],input[type=password] {
   color: #ff5722;
 }
 
-a{
-  color:$cyan;
-}
-a:hover{
-  color:$grey;
-}

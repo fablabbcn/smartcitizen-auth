@@ -1,63 +1,40 @@
 <div class="row">
+  <div class="col-12 col-md-8 my-4 text-center mx-auto">
 
-  <div class="col-12 my-4">
-    <h1 style="display: inline">Log In</h1>
+    <img class="text-white" src="https://fablabbcn.github.io/assets/images/smartcitizen_logo.svg" style="height:50px" alt="SCK logo">
 
-    <%= image_tag("sck.png", :alt => 'SCK logo', :class => 'scklogo') %>
+    <h1>Log In</h1>
 
-    <%= form_tag sessions_path do %>
-      <div class="field">
-        <%= label_tag :username_or_email, "Username or Email" %><br />
-        <%= text_field_tag :username_or_email, params[:username_or_email], autofocus: params[:username_or_email].blank? %>
-      </div>
-      <div class="field">
-        <%= label_tag :password %><br />
-        <%= password_field_tag :password %>
-      </div>
-      <div class="actions">
+    <div class="card">
+
+      <%= form_tag sessions_path do %>
+        <div class="card-body">
+          <div class="">
+            <%= label_tag :username_or_email, "Username or Email" %><br />
+            <%= text_field_tag :username_or_email, params[:username_or_email], autofocus: params[:username_or_email].blank? %>
+          </div>
+          <div class="">
+            <%= label_tag :password %><br />
+            <%= password_field_tag :password %>
+          </div>
+        </div>
         <%= hidden_field_tag :goto, params[:goto] %>
-        <%= submit_tag "LOG IN", :class => 'button login' %>
+        <%= submit_tag "SIGN IN TO YOUR ACCOUNT", class: 'button bg-blue', style: 'width:100%' %>
+      <% end %>
+    </div>
+
+    <div class="card mt-5">
+      <h5 class="my-4">Don't have an account?</h5>
+      <a class="button bg-blue" href="https://www.smartcitizen.me/signup">SIGN UP</a>
+    </div>
+
+
+    <div class="card mt-5">
+      <div class="card-body">
+        <h5 class="d-inline">Forgot your password?</h5>
       </div>
-      <div>
-        <a class="button login" href="https://www.smartcitizen.me/signup">SIGN UP</a>
-      </div>
-      <div class="actions"><%= submit_tag "RESET PASSWORD",  :name => 'send_password_email', :class => 'button reset' %></div>
+      <%= submit_tag "RESET PASSWORD",  name: 'send_password_email', class: 'button bg-red' %>
+    </div>
 
-    <% end %>
-
-  </div>
-
-  <hr />
-
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white text-center">
-      <img class="w-25 mx-auto" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-      <h4>PLATFORM</h4>
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white">
-      <img class="w-25" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white">
-      <img class="w-25" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white">
-      <img class="w-25" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white">
-      <img class="w-25" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="card bg-white">
-      <img class="w-25" src="https://raw.githubusercontent.com/fablabbcn/assets/master/images/04_campaign/location.svg?sanitize=true" alt="" />
-    </div>
   </div>
 </div>
