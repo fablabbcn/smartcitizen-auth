@@ -32,6 +32,9 @@ describe "the signin process", type: :feature do
     #click_button 'SIGN IN TO YOUR ACCOUNT'
 
     #save_and_open_page
-    #expect(page).to have_content 'Success'
+    # Wrong password:
+    #expect(page).to have_content 'Email or password is invalid '
+    # Correct password:
+    #expect(page).to have_content 'User info'
   end
 end
