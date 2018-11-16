@@ -19,6 +19,8 @@ gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
+  gem 'launchy'
   gem 'guard'
   gem 'guard-shell'
   gem 'guard-rspec'
