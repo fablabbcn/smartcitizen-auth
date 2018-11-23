@@ -20,5 +20,5 @@ RUN bundle install
 # Copy the Rails application into place
 COPY . /app
 
-#CMD [ "rails", "server", "-b", "3000" ]
 #CMD [ "bundle", "exec", "puma" ]
+CMD [ "rails", "server", "-b", "3000" ]
