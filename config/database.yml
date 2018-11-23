@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   host: <%= ENV['DEV_DB_HOST'] %>
-  database: <%= ENV['DEV_DB'] %> || 'sc_dev'
+  database: <%= ENV['DEV_DB'] || 'sc_dev' %> 
   username: <%= ENV['DEV_DB_USERNAME'] %>
 
   # The specified database role being used to connect to postgres.
