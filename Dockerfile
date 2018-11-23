@@ -21,4 +21,4 @@ RUN bundle install
 COPY . /app
 
 #CMD [ "bundle", "exec", "puma" ]
-CMD [ "rails", "server", "-b", "3000" ]
+CMD [ "rails", "server", "-p", "3000", "-b", "0.0.0.0" ]
