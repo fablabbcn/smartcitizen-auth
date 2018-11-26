@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   host: <%= ENV['DEV_DB_HOST'] %>
-  database: <%= ENV['DEV_DB'] || 'sc_dev' %> 
+  database: <%= ENV['DEV_DB'] || 'sc_dev' %>
   username: <%= ENV['DEV_DB_USERNAME'] %>
 
   # The specified database role being used to connect to postgres.
@@ -82,6 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: smartcitizen-auth_production
-  username: smartcitizen-auth
-  password: <%= ENV['SMARTCITIZEN-AUTH_DATABASE_PASSWORD'] %>
+  host: <%= ENV['PG_DATABASE_HOST'] %>
+  database: <%= ENV['PG_DATABASE_NAME'] %>
+  username: <%= ENV['PG_DATABASE_USERNAME'] %>
+  password: <%= ENV['PG_DATABASE_PASSWORD'] %>
