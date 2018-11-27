@@ -20,5 +20,8 @@ RUN bundle install
 # Copy the Rails application into place
 COPY . /app
 
+# Precompile assets here, so we don't have to do it inside a container + restart
+RUN bin/rake assets:precompile
+
 #CMD [ "bundle", "exec", "puma" ]
 CMD [ "rails", "server", "-p", "3000", "-b", "0.0.0.0" ]
