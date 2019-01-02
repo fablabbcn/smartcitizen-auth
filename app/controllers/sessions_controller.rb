@@ -31,15 +31,17 @@ class SessionsController < ApplicationController
 
     logger.warn '---- Create - normal login'
     user = User.where("lower(email) = lower(?) OR lower(username) = lower(?)",
-      params[:username_or_email], params[:username_or_email]).first
+                      params[:username_or_email], params[:username_or_email]).first
     if user && user.authenticate_with_legacy_support(params[:password])
+      logger.warn '---- with_legacy'
       session[:user_id] = user.id
 
       # If we came from Discourse (with the goto param), redirect to /discourse/sso
       if params[:goto].include? 'discourse'
         redirect_to session[:discourse_url]
       else
-        redirect_to (session[:user_return_to] || 'https://id.smartcitizen.me'), notice: "You have been successfully logged in!"
+        logger.warn '---- without discourse'
+        redirect_to (session[:user_return_to] || '/'), notice: "You have been successfully logged in!"
       end
     else
       flash.now.alert = "Email or password is invalid"
