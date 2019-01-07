@@ -123,6 +123,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
+    puma (3.12.0)
     rack (1.6.11)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -237,6 +238,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg (= 0.20)
+  puma
   rails (~> 4.2)
   rails_12factor
   rspec
