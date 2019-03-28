@@ -26,3 +26,7 @@ First migrate db
 
 Then run
 `docker-compose up`
+
+## Versioning
+
+Use `bump --help`
